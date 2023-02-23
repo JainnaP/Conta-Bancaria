@@ -2,11 +2,16 @@ package Conta;
 
 import java.util.Scanner;
 import Conta.model.Conta;
+import Conta.model.ContaCorrente;
+import Conta.model.ContaPoupança;
 import Conta.util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner (System.in);
+		int opção;
 		
 		Conta c1 = new Conta(1, 123, 1, "Adriana", 10000.0f);
 		c1.visualizar();
@@ -15,8 +20,19 @@ public class Menu {
 		c1.depositar(5000.0f);
 		c1.visualizar();
 		
-		Scanner leia = new Scanner (System.in);
-		int opçao;
+		ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Mariana", 15000.0f, 1000.0f);
+		cc1.visualizar();
+		cc1.sacar(12000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
+		
+		ContaPoupança cp1= new ContaPoupança(3, 123, 2, "Victor", 100000.0f);
+		cc1.visualizar();
+		cc1.sacar(1000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
 		
 		while (true) {
 			System.out.println(Cores.TEXT_YELLOW+Cores.ANSI_BLACK_BACKGROUND+"***********************************************");
@@ -39,13 +55,13 @@ public class Menu {
 			System.out.println("Entre com a opção desejada:                    ");
 			System.out.println("                                               "+Cores.TEXT_RESET);
 			
-			opçao = leia.nextInt();			
-			if (opçao==9) {
+			opção = leia.nextInt();			
+			if (opção==9) {
 				System.out.println(Cores.TEXT_WHITE_BOLD+"\nBanco do Brazil - 0 seu Futuro começa aqui!");
 				leia.close();
 				System.exit(0);
 			}
-			switch (opçao) {
+			switch (opção) {
 			case 1:
 				System.out.println(Cores.TEXT_WHITE+"Criar Conta \n\n");
 				break;
